@@ -1,0 +1,12 @@
+.categories{
+    /* height: 100%;  */
+    width: 160px; 
+    z-index: 1000; 
+    position: sticky; 
+    top: 0;
+}
+
+.fix{
+    position: relative; 
+    /* top: 150px; */
+}

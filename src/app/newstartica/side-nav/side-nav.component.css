@@ -1,0 +1,58 @@
+.nav-link {
+    padding: 30px;
+    opacity: 1.5;
+}
+
+.nav-link:hover {
+    color: black;
+    transition: color 0.5s ease-in-out;
+}
+
+.side-nav-parent {
+    height: 100vh;
+    position: fixed;
+    z-index: 3;
+    top: 0%;
+    color: rgb(162, 160, 160);
+    right: 0%;
+    transition: transform 1s ease;
+    align-items: center;
+}
+
+.navbar {
+    margin-top: 0px;
+}
+
+
+.button-position {
+    position: fixed;
+    right: 170px;
+    top: 45vh;
+    z-index: 3;
+    transition: transform 1s ease;
+}
+
+.make-list-open-btn {
+    transform: translateX(485%);
+    transition: transform 1s ease;
+    /* right: 2.5%; */
+    position: fixed;
+    top: 45vh;
+}
+
+.make-list-open {
+    transform: translateX(100%);
+    transition: transform 1s ease;
+}
+
+.disp {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    transition: width 1s ease-in-out;
+}
+
+.disp_shrink {
+    width: calc(100% - 170px);
+    transition: width 1s ease-in-out;
+}

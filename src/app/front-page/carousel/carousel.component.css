@@ -1,0 +1,45 @@
+.carousel-img {
+  height: 400px;
+  /* object-fit: cover; */
+}
+
+.hvr {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Berkshire Swash', cursive;
+  text-decoration: none;
+}
+
+.hvr:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+  transition: all 2s ease;
+}
+
+.hvr:hover {
+  opacity: 0.87;
+}
+
+.jsb {
+  font-family: 'Cinzel', sans-serif;
+  color: rgb(225, 222, 222);
+  font-size: 100px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+@media only screen and (max-width:800px) {
+  .jsb {
+    font-size: 45px;
+  }
+}

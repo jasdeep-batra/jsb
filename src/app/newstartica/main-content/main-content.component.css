@@ -1,0 +1,52 @@
+  button{
+    position: relative;
+    bottom: 0ch;
+    opacity: 0.8;
+  }
+  .news-container{
+    overflow-y: auto;
+    height: 600px;
+    position: sticky;
+    top: 0;
+  }
+  .second-column{
+    position: relative;
+  }
+  .categories{
+    width: 160px; 
+    z-index: 1000; 
+    position: sticky; 
+    top: 0;
+    bottom: 0;
+    /* height: 100%; */
+}
+.side-nav{
+  width: 200px;
+  bottom:0;
+}
+.news-title-anchor-link{
+  font-family: 'Marcellus'; 
+  font-weight: bold;
+  text-decoration: none; 
+  color: rgb(53, 52, 52);
+}
+
+.navbar-nav{
+  font-family: 'poppins'; 
+}
+
+@media only screen and (max-width: 800px) {
+  .col-4 {
+    display: none;
+  }
+  .side-nav{
+    width: 100%;
+  }
+}
+
+.sports-column{
+ font-size: 12px; 
+ overflow-x: hidden; 
+ overflow-y: hidden;
+ font-family: Marcellus;
+}

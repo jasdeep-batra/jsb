@@ -1,0 +1,136 @@
+<div class="row d-flex flex-row post">
+  <!-- below div is for side navigation contains classification -->
+  <div class="col-md-2 side-nav bg-danger">
+    <div class="categories overflow-hidden">
+      <input class="ms-1 mt-3 overflow-hidden " placeholder="Search News" type="search" name=""
+        style="background-color: rgb(230, 226, 226); width: 150px; font-family: 'Poppins';" id="">
+      <div class="navbar-nav text-center overflow-hidden text-light">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Agriculture</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">World</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Entertainment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Business</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Finance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Politics</a>
+        </li>
+      </div>
+    </div>
+  </div>
+  <!-- below div is for the title of news articles  -->
+  <div class="col-md-3">
+    <!-- In the below div first used  (mouseenter)="func()" (mouseleave)="hideArticle()" for hoover  -->
+    <div class="col border-bottom my-2" *ngFor="let item of news_items.slice(10,50)">
+      <!-- routerLink="/newstartica" -->
+      <a href="" class="news-title-anchor-link" (click)="clickedArticle($event,item)">
+        {{item.title}}
+      </a>
+
+    </div> <!-- <div><a>checkout more articles</a></div> -->
+
+  </div>
+  <!-- 
+  To enable the stick property of second column such that it will remain below navigation bar and when scrolled down will remain on top.
+  1. first we need to make the main column's postion relative such that eveything inside it will change relative to it.
+  2. make the inner column stick so it will be stick according to its parent column. -->
+  <div class="col-4 second-column">
+
+    <div class="news-container" #newsContainer>
+      <div *ngIf="!s_article" class="text-center">{{send_message}}</div>
+      <div *ngIf="s_article">
+
+        <div class="col-2" style="width: 100%;">
+          <img [src]="s_article.urlToImage" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3 style="font-family: 'poppins';">{{s_article.title}}</h3>
+
+        <div style="font-family: 'poppins';">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nam natus
+          voluptatum, pariatur est dignissimos dolorem laborum possimus ipsam aut tenetur molestias nihil ea nulla vitae
+          cupiditate atque quibusdam laboriosam!
+          Fugit magnam voluptas doloribus, rerum eligendi saepe molestiae. Explicabo ratione, inventore soluta nihil
+          esse eveniet neque commodi veritatis voluptas quas at vitae, velit veniam corporis modi ad voluptatibus?
+          Voluptate, quos?
+          Asperiores eius obcaecati minus sapiente veniam consequuntur maiores nobis eligendi, porro rem, quis autem
+          quasi voluptatum expedita cum temporibus quaerat similique facilis accusantium itaque repudiandae qui
+          molestiae. Sed, sit perspiciatis.
+          Commodi, voluptatum qui libero doloremque enim, reiciendis officiis voluptatibus deserunt consequatur deleniti
+          dignissimos fuga! Numquam explicabo laudantium sint consequatur, adipisci quae culpa architecto ex fuga
+          quisquam! Alias dolorem atque numquam!
+          Provident consectetur expedita ut esse eos. Quae, tempore. Totam est animi repellendus dicta ducimus doloribus
+          neque, corporis accusantium magnam dignissimos. Deserunt assumenda voluptate nisi veniam temporibus.
+          Asperiores tenetur voluptatum sequi.
+          Quidem ipsam vitae ut! Ratione, et architecto. Consequuntur, vel ea? Nobis enim facilis quod non aliquam
+          molestiae repellat dolorem repudiandae earum, iure sequi, delectus necessitatibus? Molestiae iste est neque
+          nihil.
+          Enim, aut. Consequatur, porro quod dolore eum cum, sunt illo eaque officiis dolorem harum doloremque hic
+          repudiandae necessitatibus fuga aspernatur velit. Nisi illum dolor vero blanditiis optio. Molestias, vel esse.
+          Sapiente maxime, iure, architecto corrupti nulla non alias itaque sed nesciunt nemo dolorum voluptatum atque
+          nisi necessitatibus aperiam ipsam ad soluta eos voluptates? Architecto nemo fugiat distinctio debitis ipsum
+          consequuntur.
+          Quas ullam aspernatur porro autem consequuntur magnam modi dolorem alias dolor? Est corporis, illum error
+          dicta delectus odio cupiditate harum nulla doloribus alias laboriosam rem adipisci necessitatibus porro
+          molestias mollitia?
+          Dignissimos repellendus, obcaecati minima, labore exercitationem voluptates illum, quibusdam dolorem nesciunt
+          necessitatibus fugit? Facere quaerat est nam, voluptatem fugiat odio atque perferendis laboriosam odit. Unde
+          temporibus illum repudiandae veritatis facere.
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-danger" (click)="hideArticle()">Close Article</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-3">
+    <div class="row justify-content-center text-center">
+      <div class="col-5">
+        
+        <a class="news-title-anchor-link" [routerLink]="['/newstartica', 'top-news']">TOP NEWS</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" *ngFor="let item of news_items.slice(10,14)">
+        <div class="card my-1" style="width: 10rem; height: 10rem; border: none;">
+          <img class="card-img-top" [src]="item.urlToImage" alt="Card image cap">
+          <div class="card-body" style="overflow: hidden; font-size: 13px;">
+            <a href="#" (click)="clickedArticle($event,item)"
+              class="card-text news news-title-anchor-link">{{item.title}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 row justify-content-center text-center">
+      <div class="col-5">
+        <a class="news-title-anchor-link" [routerLink]="['/newstartica', 'sports']">SPORTS</a>
+      </div>
+    </div>
+    <div class="row d-flex flex-row mb-4" *ngFor="let item of sports_news.slice(5,10)">
+      <div class="col-3" >
+        <img class="card-img-top" [src]="item.urlToImage" alt="Card image cap" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="col-9 sports-column">
+        <a href="#" (click)="clickedArticle($event,item)"
+              class="card-text news news-title-anchor-link">{{item.title}}</a>
+      </div>
+    </div>
+
+    <div class="mt-2 row justify-content-center text-center">
+      <div class="col-5">
+        OPINIONS
+      </div>
+    </div>
+  </div>
+</div>
