@@ -32,7 +32,7 @@ export class MainContentComponent {
 
       ngOnInit(): void{       // fetching news from api using service object
           this.service.topHeading().subscribe((result)=>{
-            console.log(result);
+            console.log("pp",result);
             this.news_items = result.articles;    
             
           this.service.topNewsHeading().subscribe((sports_result)=>{
