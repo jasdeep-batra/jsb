@@ -9,10 +9,12 @@ import { ActivatedRoute, Router} from '@angular/router';
 })
 export class MainContentComponent {
 
+
       mouseClick: Boolean = false;
       send_message: any =  "Click on the title of the News to read the article;";
 
       @ViewChild('newsContainer',{static:false}) newsContainer!: ElementRef;
+CategoryList: any;
 
       
       constructor(private service: NewsServiceService, 
@@ -29,15 +31,16 @@ export class MainContentComponent {
       news_items: any = [];  // list to store news objects 
       sports_news: any = [];
       snug: any;
-
+      page: number = 0;   // since we are fetching all the items, page number will be 0
       ngOnInit(): void{       // fetching news from api using service object
-          this.service.topHeading().subscribe((result)=>{
-            console.log("pp",result);
-            this.news_items = result.articles;    
+          this.service.topHeading(this.page).subscribe((result)=>{
+            console.log("Test New News API",result);
+            this.news_items = result;   
+            console.log(this.news_items) 
             
           this.service.topNewsHeading().subscribe((sports_result)=>{
             console.log(sports_result);
-            this.sports_news = sports_result.articles;
+            this.sports_news = sports_result;
           })
           })
           
@@ -55,8 +58,8 @@ export class MainContentComponent {
           this.hideArticle();
         }
         else{
-          this.snug = article.title;
           this.s_article = article;
+          this.snug = article.title;
           this.mouseClick = true;
           this.scrollToTop(); 
 
@@ -71,12 +74,12 @@ export class MainContentComponent {
         
         
       }
-
+      // #use case of snug 
       clickedArticle(event:Event, article:any): void{
         event.preventDefault();
         this.showArticle(article);
         this.snug = article.title;
-        this.router.navigate(['newstartica/news', this.snug]);
+        // this.router.navigate(['newstartica/news', this.snug]);  //when we are going to /news then we should only show that news
         console.log(article.content);   
       }
 
@@ -86,4 +89,16 @@ export class MainContentComponent {
         }
       }
       
+      //HANDLE SEARCH FUNCTIONALITY
+      search_string:string = '';
+      getSearchValue(event:any) {
+        this.search_string = event.target.value 
+        console.log("Log Search Feature: ",this.search_string)
+        }
+
+      //LOGIC FOR CORRECTING IMAGE URL BECAUSE ANGULAR WAS CONSIDERING ITS OWN HOST RATHER THAN  DJANGO HOST
+      getImageURL(arg0: any) {
+        console.log("http://127.0.0.1:8000/"+arg0)
+          return "http://127.0.0.1:8000/"+arg0
+        }
 }

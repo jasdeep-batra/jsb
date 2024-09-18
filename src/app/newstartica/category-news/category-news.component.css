@@ -1,0 +1,30 @@
+.categories{
+    width: 160px; 
+    z-index: 1000; 
+    position: sticky; 
+    top: 0;
+    bottom: 0;
+    /* height: 100%; */
+}
+.news-title-anchor-link{
+    font-family: 'Marcellus'; 
+    font-weight: bold;
+    text-decoration: none; 
+    color: rgb(53, 52, 52);
+  }
+
+  .ActivePage{
+    background: #b24343;  /*212529;*/
+    color: white;
+    font-weight: 3px;
+    font-weight: bold;
+  }
+  .InActivePage{
+    color: black;
+    font-weight: 10px;
+    /* font-weight: bold; */
+  }
+
+  img{
+    overflow-y: hidden;
+  }

@@ -6,23 +6,18 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { CategoryNewsComponent } from './category-news/category-news.component';
 import { CategoriesComponent } from './categories/categories.component';
 const routes: Routes = [
-  // {
-  //   path: 'newstartica', component: ContainerComponent
-  // },
-  // {
-  //   path: 'newstartica/:category', // Adjusted path
-  //   component: CategoryNewsComponent,
-  //   outlet: 'newstart'
-  // },
   {
     path: 'newstartica',
     component: ContainerComponent,
     children: [
       { path: '', component: MainContentComponent }, // Default route
       // { path: ':category', component: CategoryNewsComponent },
+      {path:'news',component: MainContentComponent},
       {path:':category',component: CategoryNewsComponent},
 
-      {path: 'news/:snug',component: MainContentComponent}
+      {path: 'news/:snug',component: MainContentComponent},
+
+      // {path: 'news/',component:individualNews}
       // {path:':category',component: CategoriesComponent},
     ]
   }

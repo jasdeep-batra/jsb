@@ -10,6 +10,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { NewsServiceService } from './news-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryNewsComponent } from './category-news/category-news.component';
+import { CollapsableNavbarComponent } from './collapsable-navbar/collapsable-navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CategoryNewsComponent } from './category-news/category-news.component';
     SideNavComponent,
     CategoriesComponent,
     MainContentComponent,
-    CategoryNewsComponent
+    CategoryNewsComponent,
+    CollapsableNavbarComponent
   ],
   imports: [
     CommonModule,
