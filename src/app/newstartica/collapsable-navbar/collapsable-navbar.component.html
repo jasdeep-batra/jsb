@@ -1,1 +1,33 @@
-<p>collapsable-navbar works!</p>
+<button class="btn btn-dark looks" (click)="buttonActivate()"
+    [ngClass]="{category:!isActive, 'category-expand':isActive }">
+    S <br>
+    E <br>
+    A <br>
+    R <br>
+    C <br>
+    H
+</button>
+
+<div class=" cat-bar-style bg-dark" [ngClass]="{'cat-bar':isActive,'cat-bar-inactive':!isActive}">
+
+    <!-- How to remove horizontal scroll bar
+        1. It occurs due to margin and padding so set it to zero espeically for row or col (these two are culprits) 
+    -->
+    <!-- How to bring Input bar to Middle
+        1. Use grid system
+        2. use display flex property then justify content center
+        3. make sure padding margin is 0 or set properly then only it will be in middle -->
+    <div class="row d-flex justify-content-center" style="padding: 0; margin: 0;">
+        <div style="padding: 0;" [ngClass]="{'col-8': !pressed, 'bg-light':pressed}">
+            <input class=" overflow-hidden " placeholder="Search News" type="search" name=""
+                style="background-color: rgb(255, 255, 255);  font-family: 'Poppins';  border-radius:10px"
+                id="" (keyup.enter)="getSearchValue($event)" (mouseenter)="reduceisland()">
+        </div>
+    </div>
+
+    <ul>
+        <li *ngFor="let item of sorted_categories">
+            <a style="text-decoration: none; color:rgb(208, 204, 204)" href="">{{item}}</a>
+        </li>
+    </ul>
+</div>

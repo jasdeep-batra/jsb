@@ -28,3 +28,6 @@
   img{
     overflow-y: hidden;
   }
+  .row{
+    justify-content: left;
+  }

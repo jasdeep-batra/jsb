@@ -1,0 +1,101 @@
+.looks{
+    color: white;
+    font-size: 8px;
+    position: fixed;
+    top: calc(50% - 36px);
+    border: rgb(131, 129, 129) 2px solid;
+    border-radius: 10px;
+    opacity: 0.7;
+    z-index: 1000;
+}
+.looks:hover{
+    opacity: 2;
+}
+
+/* category button  */
+.category{
+    /* left: 0;
+    transition: left 2s ease-in-out; */
+    transform: translateX(0%);
+    transition: transform 1.5s ease;
+}
+.category-expand{
+    /* left: 200px;
+    transition: left 2s ease-in-out; */
+    transform: translateX(200px);
+    transition: transform 1.5s ease;
+    opacity: 1;
+}
+
+.cat-bar-style{
+    z-index: 1000;
+    height: 400px;
+    position: fixed;
+    width: 200px;
+    top: calc(50% - 200px);
+    overflow-y: scroll;
+    border: solid #212529 2px;
+    border-radius:30px;
+    
+}
+
+.cat-bar{
+    transform: translateX(0px);
+    transition: transform 1.5s ease;
+}
+
+.cat-bar-inactive{
+       transform: translateX(-200px); 
+       transition: transform 1.5s ease;
+}
+
+ul{
+    color: white;
+    text-wrap: nowrap;
+    position: absolute;
+    font-family: 'Marcellus';
+     
+}
+li{
+    margin-block: 5px;
+}
+
+
+input{
+    margin:0;
+    width: 100%;
+}
+.col-8{
+    margin-top: 8px; 
+}
+.col-5{
+    margin-top: 8px;
+}
+.row{
+    position: sticky; 
+    z-index: 2;
+    top:0;
+    background-color: #212529;
+    justify-content: center;
+
+}
+
+/* handling scroll bar */
+::-webkit-scrollbar{
+    width: 5px;
+    /* background: red; */
+    
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(195, 192, 192);
+    border: solid 0px transparent;
+    border-radius: 10px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+    width: 5px;
+    overflow: hidden;
+}

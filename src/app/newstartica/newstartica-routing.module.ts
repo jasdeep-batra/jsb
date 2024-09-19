@@ -4,7 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { CategoryNewsComponent } from './category-news/category-news.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { CollapsableNavbarComponent } from './collapsable-navbar/collapsable-navbar.component';
+
 const routes: Routes = [
   {
     path: 'newstartica',
@@ -16,6 +17,8 @@ const routes: Routes = [
       {path:':category',component: CategoryNewsComponent},
 
       {path: 'news/:snug',component: MainContentComponent},
+
+      {path:'test/sidenavtest',component:CollapsableNavbarComponent}
 
       // {path: 'news/',component:individualNews}
       // {path:':category',component: CategoriesComponent},

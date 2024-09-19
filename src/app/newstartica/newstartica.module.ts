@@ -5,7 +5,6 @@ import { NewstarticaRoutingModule } from './newstartica-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { CategoriesComponent } from './categories/categories.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { NewsServiceService } from './news-service.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +16,6 @@ import { CollapsableNavbarComponent } from './collapsable-navbar/collapsable-nav
     HeaderComponent,
     ContainerComponent,
     SideNavComponent,
-    CategoriesComponent,
     MainContentComponent,
     CategoryNewsComponent,
     CollapsableNavbarComponent
