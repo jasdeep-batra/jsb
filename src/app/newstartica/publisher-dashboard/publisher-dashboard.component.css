@@ -1,0 +1,24 @@
+.navigation{
+    margin-top: 30px;
+}
+
+.col-2{
+    color: rgb(12, 12, 12);
+    border: solid black 2px;
+    border-radius: 7px;
+
+    margin-inline: 2px;
+}
+
+.btn{
+    margin-inline: 3px;
+}
+.buttonColor{
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+.defaultBUttonColor{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+

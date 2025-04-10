@@ -1,0 +1,16 @@
+.title{
+    text-align: center;
+}
+
+.content{
+
+text-align: center;
+}
+
+.row{
+    width: 60%;
+    height: 60%;
+    right: 50%;
+    display: flex;
+    justify-content: center;
+}

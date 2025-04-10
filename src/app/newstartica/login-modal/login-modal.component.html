@@ -1,0 +1,60 @@
+<!-- <h1 mat-dialog-title>Dialog Title</h1>
+<div mat-dialog-content>
+  <p>Dialog content goes here.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</div> -->
+
+<div class="row d-flex justify-content-between">
+  <div class="col-6 lef" (click)="active_login(true)" [ngClass]="{'activeTab': isActive, 'inactiveTab': !isActive}">
+    Login
+  </div>
+  <div class="col-6 rig" (click)="active_login(false)" [ngClass]="{'activeTab': !isActive, 'inactiveTab': isActive}">
+    Sign In
+  </div>
+</div>
+
+<div style=" margin:0;padding:0;height: 350px; border: solid rgb(225, 49, 49) 3px; border-top: none" class="row mainc">
+  <div *ngIf="loginErrorNotification" class="alert alert-danger" role="alert" style="height:fit-content;position: relative; overflow-x:hidden; margin:0">
+    Username or Password Incorrect. Try Again!
+  </div>
+  <mat-slide-toggle (change)="PublisherToggle($event)">Publisher?</mat-slide-toggle>
+  <div [ngSwitch]="isActive" class="d-flex justify-content-center align-items-center">
+    <form *ngSwitchCase="true" class=" d-flex flex-column" [formGroup]="LoginForm" (ngSubmit)="LoginOnSubmit()">
+      <div class="form-group roboto-medium">
+        <label for="exampleInputEmail1">Username or Email</label>
+        <input type="text" formControlName="username" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" formControlName="password" class="form-control">
+      </div>
+      <div class="col-auto d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" style="margin-block: 10px;">
+          Log In
+        </button>
+      </div>
+    </form>
+
+    <form *ngSwitchDefault [formGroup]="SigninForm" class=" d-flex flex-column" (ngSubmit)="SigninSubmit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter Username</label>
+        <input type="text" formControlName="username" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter Email</label>
+        <input type="email" formControlName="email" class="form-control" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" formControlName="password" class="form-control">
+      </div>
+      <div class="col-auto d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" style="margin-block: 10px;">
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,5 +1,4 @@
 
-  
   button{
     position: relative;
     bottom: 0ch;
@@ -7,12 +6,13 @@
   }
   .news-container{
     overflow-y: auto;
-    height: 600px;
-    position: sticky;
-    top: 0;
+    margin-bottom: 20px;
+    /* position: sticky;
+    top: 0; */
   }
   .second-column{
     position: relative;
+   
   }
 
   /* vertical side nav */
@@ -46,7 +46,7 @@
   font-family: 'Marcellus'; 
   font-weight: bold;
   text-decoration: none; 
-  font-size: calc(20px+1vp);
+  /* font-size: calc(20px+1vp); */
   color: rgb(53, 52, 52);
   /* color:rgb(3, 128, 201); */
 }
@@ -67,9 +67,9 @@
   height: 10rem;
 }
 @media only screen and (max-width: 1400px) {
-  .second-column {
+  /* .second-column {
     display: none;
-  }
+  } */
   .side-nav{
     width: 100%;
   }
@@ -83,7 +83,19 @@
     .screen{
       justify-content:center;
     }
+
+    .mid-news{
+        flex-direction: column;
+    }
+    
 }
+
+@media only screen and (max-width: 620px) {
+  .test{
+    font-size: 15px !important;
+  }
+}
+
 
 .sports-column{
  font-size: 12px; 
@@ -110,3 +122,15 @@ img{
 .screen{
   border: 1px solid black;
 }
+
+.blurred-image {
+  filter: blur(1.5px); /* Adjust the px value to increase/decrease blur */
+}
+
+
+.card-dimension{
+    height: auto;
+    width: auto;
+}
+
+

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { NewsServiceService } from '../news-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ArticleReaderComponent } from '../article-reader/article-reader.component';
 @Component({
   selector: 'app-category-news',
   templateUrl: './category-news.component.html',
@@ -22,11 +24,13 @@ export class CategoryNewsComponent {
   current_page: number = 1;
 
 
-  constructor(private route: ActivatedRoute,
-     private router: Router,
-    private service: NewsServiceService){
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: NewsServiceService,
+    public dialog: MatDialog
+  ){}
 
-  }
   ngOnInit(){
     this.route.paramMap.subscribe(params=>{
       this.category =  params.get('category');
@@ -95,6 +99,19 @@ showArticle(article: any) {
   }
   getImageURL(url: any){
     return this.service.getImageURL(url)
+  }
+
+  //To open dialog when clicked on title 
+  titleClicked(article:any){
+      this.dialog.open(ArticleReaderComponent,{
+        height:'80%',
+        width:'60%',
+        data:{
+          title: article.title,
+          content: article.content,
+          image: article.image
+        }
+      })
   }
   
 }

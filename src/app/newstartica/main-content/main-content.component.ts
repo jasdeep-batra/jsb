@@ -2,6 +2,9 @@ import { Component, OnInit,ElementRef, ViewChild  } from '@angular/core';
 import { NewsServiceService } from '../news-service.service';
 import { DomSanitizer,SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute, Router} from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
+import { Subscription } from 'rxjs/internal/Subscription';
 @Component({
   selector: 'app-main-content',
   templateUrl: './main-content.component.html',
@@ -20,14 +23,15 @@ CategoryList: any;
       constructor(private service: NewsServiceService, 
         private sanitizer: DomSanitizer, 
         private route: ActivatedRoute,
-        private router: Router){
+        private router: Router,
+        public dialog: MatDialog){
 
       }
 
       getSanitizedContent(article: any): SafeHtml{
         return this.sanitizer.bypassSecurityTrustHtml(article.content);
       }
-
+      private subscription!: Subscription;
       news_items: any = [];  // list to store news objects 
       sports_news: any = [];
       snug: any;
@@ -42,7 +46,15 @@ CategoryList: any;
             console.log(sports_result);
             this.sports_news = sports_result;
           })
-          })
+          });
+
+          // this.subscription = this.service.currentToggleState.subscribe((togglestate)=>{
+          //   if (togglestate==true)
+          //   {
+          //     console.log("UT: togglestate: ",togglestate)      
+          //     this.OpenDialogue()  //without including material css in styles.css it won't work.
+          //   }
+          // })
           
           // this.route.paramMap.subscribe(params=>{
           //   this.snug = params.get('snug');
@@ -51,6 +63,12 @@ CategoryList: any;
           // })
 
       }
+      // ngOnDestroy() {
+      //   // Unsubscribe when the component is destroyed
+      //   if (this.subscription) {
+      //     this.subscription.unsubscribe();
+      //   }
+      // }
       s_article: any;
       showArticle(article:any): void{
         if(this.s_article===article){
@@ -101,4 +119,18 @@ CategoryList: any;
         console.log("http://127.0.0.1:8000/"+arg0)
           return "http://127.0.0.1:8000/"+arg0
         }
+
+
+      // Dialogue Logic Anuglar Matdialogue
+      OpenDialogue(){
+      //   const dialogConfig = new MatDialogConfig();
+    
+      // dialogConfig.position = { top: '50%', left: '50%' };
+      // dialogConfig.panelClass = 'custom-dialog-container'; // 
+        this.dialog.open(LoginModalComponent,{
+          width: '600px',
+          height: '400px',
+          panelClass: 'custom-dialog-container'
+        })
+      }
 }

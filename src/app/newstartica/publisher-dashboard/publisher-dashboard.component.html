@@ -1,0 +1,12 @@
+
+<app-header></app-header>
+<div class="container">
+    <div class="row d-flex text-center justify-content-center navigation"> 
+        <div class="col">
+            <button class="btn" *ngFor="let item of nav_list; let i = index" [ngClass]="{buttonColor: selected_button===i, defaultBUttonColor: selected_button!==i}" (click)="ToggleColor(i)">
+                {{item}}
+            </button>
+        </div>       
+    </div>
+    <app-publisher-post-upload-form class="d-flex justify-content-center"></app-publisher-post-upload-form> 
+</div>

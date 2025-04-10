@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NewsServiceService } from 'src/app/newstartica/news-service.service';
 
 @Component({
   selector: 'app-collector1',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./collector1.component.css']
 })
 export class Collector1Component {
+  constructor(private service: NewsServiceService)
+  {
 
+  }
 }

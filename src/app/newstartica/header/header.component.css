@@ -1,4 +1,30 @@
+.row{
+    height:  60px;
+    margin: 0px;
+    padding: 0px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 .header{
-    margin-right: 0;
-    padding-right: 0px;
+    font-family: 'Marcellus';
+    color: white; 
+    font-size:30px;
+    margin: 0;
+    align-items: center;
+}
+
+@media screen and (max-width:600px){
+    .header{
+
+        font-size: 20px;
+    }
+}
+
+.signin{
+    position: absolute;
+    color: rgb(227, 227, 227);
+    right: 0%;
+    top: 20%;
+    font-family: 'Atkinson Hyperlegible'
 }

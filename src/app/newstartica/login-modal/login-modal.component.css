@@ -1,0 +1,55 @@
+.col-6{
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 25px;
+    /* font-weight: 500; */
+    cursor: pointer;
+    
+    
+}
+.lef{
+    border-bottom-right-radius: 10px;
+}
+.rig{
+    border-bottom-left-radius: 10px;
+}
+.row{
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.activeTab{
+    background-color: rgb(225, 49, 49);
+    color: white;
+    /* font-weight:700; */
+}
+
+.inactiveTab{
+    background-color: white;
+    color: rgb(33, 32, 32);
+    border-bottom: solid rgb(225, 49, 49) 4px;
+}
+
+.mainc{
+    position: static;
+
+}
+
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group{
+    font-family: "Atkinson Hyperlegible";
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+form{
+    width: 70%;
+}

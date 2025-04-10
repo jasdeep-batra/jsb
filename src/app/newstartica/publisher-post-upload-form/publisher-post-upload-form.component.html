@@ -1,0 +1,35 @@
+<div class="my-5 row d-flex flex-column" style="width: 50%;">
+    <form action="" [formGroup]="myForm" style="display: flex;
+    flex-direction: column;" (ngSubmit)="formSubmit()">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option value={{item}} *ngFor="let item of categories;let i = index">
+                    {{item}}
+                </mat-option>
+            </mat-select>
+            <!-- {{myForm.get('category')?.value}} -->
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Article</mat-label>
+            <textarea matInput formControlName="content"></textarea>
+        </mat-form-field>
+
+        <div class="d-flex ">
+            <label for="file-upload" class="mat-label mx-3">Upload Image</label>
+            <input type="file" id="file-upload" (change)="onImageSelected($event)" accept="image/*" />
+        </div>
+    
+        <!-- Image Preview -->
+        <div *ngIf="previewUrl">
+            <h3>Image Preview:</h3>
+            <img [src]="previewUrl" alt="Image Preview" width="300px" />
+        </div>
+
+        <button class="btn btn-dark mt-3" style=" width:auto;color: white;">Submit</button>
+    </form>
+</div>

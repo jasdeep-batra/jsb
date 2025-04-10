@@ -1,45 +1,72 @@
 <div class="container">
-    <div class="row d-flex justify-content-center flex-row">
-        <div class="col-3 bg-dark" style="color: white; text-align:center;font-family: 'Marcellus'; letter-spacing:3px; font-size:20px">
-            <span>
-                {{category | uppercase}}
-            </span>
-        </div>
-    </div>
     <div class="row">
-        <div class="row">
-            <div class="col" *ngFor="let item of news_items">
-                <div class="card my-1" style="width: 10rem; height: 10rem; border: none;">
-                    <img class="card-img-top" [src]="getImageURL(item.image)" alt="Card image cap" style="overflow-y: hidden;">
+        <div class="col-sm-8">
+            <div class="row">
+                <div *ngFor="let item of news_items" class="card my-1"
+                    style="width: 10rem; height: 10rem; border: none;">
+                    <img class="card-img-top" [src]="getImageURL(item.image)" alt="Card image cap"
+                        style="overflow-y: hidden;">
                     <div class="card-body" style="overflow: hidden; font-size: 13px;">
-                        <a href="#" (click)="clickedArticle($event,item)"
+                        <a style="cursor:pointer;" [href]="" (click)="titleClicked(item)"
                             class="card-text news news-title-anchor-link">{{item.title}}
                         </a>
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col d-flex justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous"
+                                    style="background-color: #b24343; color:white">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Prev</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><button class="page-link" (click)="post_page_no(page)"
+                                    [ngClass]="{ActivePage: pageActive(page), 'InActivePage': !pageActive(page)}">{{page}}</button>
+                            </li>
+                            <li class="page-item"><button class="page-link" (click)="post_page_no(page+1)"
+                                    [ngClass]="{ActivePage: pageActive(page+1),'InActivePage': !pageActive(page+1)}">{{page+1}}</button>
+                            </li>
+                            <li class="page-item"><button class="page-link" (click)="post_page_no(page+2)"
+                                    [ngClass]="{ActivePage: pageActive(page+2),'InActivePage': !pageActive(page+2)}">{{page+2}}</button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link" aria-label="Next" style="background-color: #b24343; color:white"
+                                    (click)="NextClicked(current_page)">
+                                    <span class="sr-only">Next</span>
+                                    <span aria-hidden="true">&raquo;</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-3">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination" >
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous" style="background-color: #b24343; color:white">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Prev</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><button class="page-link" (click)="post_page_no(page)" [ngClass]="{ActivePage: pageActive(page), 'InActivePage': !pageActive(page)}">{{page}}</button></li>
-                  <li class="page-item"><button class="page-link" (click)="post_page_no(page+1)" [ngClass]="{ActivePage: pageActive(page+1),'InActivePage': !pageActive(page+1)}">{{page+1}}</button></li>
-                  <li class="page-item"><button class="page-link" (click)="post_page_no(page+2)" [ngClass]="{ActivePage: pageActive(page+2),'InActivePage': !pageActive(page+2)}">{{page+2}}</button></li>
-                  <li class="page-item">
-                    <button class="page-link" aria-label="Next" style="background-color: #b24343; color:white" (click)="NextClicked(current_page)">
-                        <span class="sr-only">Next</span>
-                        <span aria-hidden="true">&raquo;</span>
-                    </button>
-                  </li>
-                </ul>
-              </nav>
+        <div class="col-sm-4">
+            <h3>Latest </h3>
+            <div class="mb-3" style="border-bottom: solid rgb(42, 42, 42) 1px; overflow-x: hidden;"
+                *ngFor="let item of news_items.slice(0,4)">
+
+                <a href="#" (click)="clickedArticle($event,item)" class="news news-title-anchor-link">{{item.title}}
+                </a>
+            </div>
+
+            <h3>Opinion | {{category}}</h3>
+            <div>
+                <div class="row mb-2" *ngFor="let item of news_items.slice(0,4)">
+                    <div class="col-3">
+                        <img class="card-img-top" [src]="getImageURL(item.image)" alt="Card image cap"
+                            style="overflow-y: hidden;">
+                    </div>
+                    <div class="col-9" style="overflow-x: hidden;">
+                        <span
+                            style="margin:0;padding:0;color: rgb(6, 163, 236); font-weight:bold; ">{{item.author}}</span>
+                        | {{item.title}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
